@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Hero} from '../data/hero';
+import {HeroService} from '../services/hero.service';
 
 @Component({
   selector: 'app-creation',
@@ -14,12 +16,15 @@ export class CreationComponent implements OnInit {
     degats: new FormControl(''),
     pv: new FormControl(''),
     });
-  constructor() { }
+  constructor(private form: FormBuilder, private heroService: HeroService) { }
 
   ngOnInit() {
   }
 
   saveHero() {
-    console.warn(this.formHero.value);
+    const hero = new Hero();
+    hero.id = 54;
+    hero.name = 'toto';
+    this.heroService.addHero(hero);
   }
 }

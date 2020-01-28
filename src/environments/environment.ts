@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+  apiKey: 'AIzaSyAzBj0qboTzqVWZtmdEGkBEKwpZryBmbFo',
+  authDomain: 'tohgrafa.firebaseapp.com',
+  databaseURL: 'https://tohgrafa.firebaseio.com',
+  projectId: 'tohgrafa',
+  storageBucket: 'tohgrafa.appspot.com',
+  messagingSenderId: '221381193463',
+  appId: '1:221381193463:web:677899787da43eadabadf2'
+  }
+
 };
 
 /*
