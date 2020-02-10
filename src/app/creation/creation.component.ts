@@ -23,8 +23,12 @@ export class CreationComponent implements OnInit {
 
   saveHero() {
     const hero = new Hero();
-    hero.id = 54;
-    hero.name = 'toto';
+    hero.id = '';
+    hero.name = this.formHero.get('name').value;
+    hero.attaque = this.formHero.get('attaque').value;
+    hero.esquive = this.formHero.get('esquive').value;
+    hero.degats = this.formHero.get('degats').value;
+    hero.pv = this.formHero.get('pv').value;
     this.heroService.addHero(hero);
   }
 }
