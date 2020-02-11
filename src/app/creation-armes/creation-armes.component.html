@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Création d'une arme</h2>
+  <form [formGroup]="formArme" (ngSubmit)="createArme()">
+    <label>Name:
+      <input type="text" formControlName="name">
+    </label><br>
+    <label>Attaque:
+      <input type="number" formControlName="attaque">
+    </label><br>
+    <label>Esquive:
+      <input type="number" formControlName="esquive">
+    </label><br>
+    <label>Dégâts:
+      <input type="number" formControlName="degats">
+    </label><br>
+    <label>Point de Vie:
+      <input type="number" formControlName="pv">
+    </label><br>
+
+    <button type="submit" [disabled]="!formArme.valid">Valider</button>
+  </form>
+</div>
+

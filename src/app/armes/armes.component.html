@@ -1,0 +1,10 @@
+<h2>Liste des armes</h2>
+<button routerLink="/armes/creation">Créer une arme</button>
+<ul class="armes">
+  <li *ngFor="let arme of armes">
+    <a routerLink="/detail/{{arme.id}}">
+      <span class="badge">{{arme.id}}</span> {{arme.name}}
+    </a>
+  </li>
+</ul>
+

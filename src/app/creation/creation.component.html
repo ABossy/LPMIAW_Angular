@@ -1,18 +1,18 @@
-<h2>Création d'un hero</h2>
 <div class="container">
-  <form [formGroup]="formHero" (ngSubmit)="saveHero()">
+<h2>Création d'un hero</h2>
+  <form [formGroup]="formHero" (ngSubmit)="createHero()">
   <label>Name:
     <input type="text" formControlName="name">
   </label><br>
   <label>Attaque:
     <input type="number" formControlName="attaque">
-  </label>
+  </label><br>
     <label>Esquive:
       <input type="number" formControlName="esquive">
     </label><br>
     <label>Dégâts:
       <input type="number" formControlName="degats">
-    </label>
+    </label><br>
     <label>Point de Vie:
       <input type="number" formControlName="pv">
     </label><br>
@@ -20,3 +20,4 @@
 <button type="submit" [disabled]="!formHero.valid">Valider</button>
   </form>
 </div>
+

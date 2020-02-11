@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import { ArmesComponent } from './armes/armes.component';
+import { ArmeDetailComponent } from './arme-detail/arme-detail.component';
+import { CreationArmesComponent } from './creation-armes/creation-armes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    CreationComponent
+    CreationComponent,
+    ArmesComponent,
+    ArmeDetailComponent,
+    CreationArmesComponent
   ],
   imports: [
     BrowserModule,

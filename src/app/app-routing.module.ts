@@ -4,6 +4,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import {CreationComponent} from './creation/creation.component';
+import {ArmesComponent} from './armes/armes.component';
+import {CreationArmesComponent} from './creation-armes/creation-armes.component';
 
 // dis au router quelle vue afficher
 const routes: Routes = [
@@ -12,6 +14,10 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'heroes/creation', component: CreationComponent },
+  { path: 'armes', component: ArmesComponent },
+  { path: 'detailsArmes/:id', component: ArmesComponent },
+  { path: 'armes/creation', component: CreationArmesComponent },
+
 
 ];
 
