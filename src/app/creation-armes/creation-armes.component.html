@@ -1,20 +1,21 @@
 <div class="container">
   <h2>Création d'une arme</h2>
+  <p>Point de l'arme : {{restant}}</p>
   <form [formGroup]="formArme" (ngSubmit)="createArme()">
     <label>Name:
       <input type="text" formControlName="name">
     </label><br>
     <label>Attaque:
-      <input type="number" formControlName="attaque">
+      <input type="number" formControlName="attaque" min="-5" max="{{restant + this.formArme.get('attaque').value}}">
     </label><br>
     <label>Esquive:
-      <input type="number" formControlName="esquive">
+      <input type="number" formControlName="esquive" min="-5" max="{{restant + this.formArme.get('esquive').value}}">
     </label><br>
     <label>Dégâts:
-      <input type="number" formControlName="degats">
+      <input type="number" formControlName="degats" min="-5" max="{{restant + this.formArme.get('degats').value}}">
     </label><br>
     <label>Point de Vie:
-      <input type="number" formControlName="pv">
+      <input type="number" formControlName="pv" min="-5" max="{{restant + this.formArme.get('pv').value}}">
     </label><br>
 
     <button type="submit" [disabled]="!formArme.valid">Valider</button>
