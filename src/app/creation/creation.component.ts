@@ -14,7 +14,6 @@ import {Router} from '@angular/router';
 export class CreationComponent implements DoCheck, OnInit {
 
   hero: Hero;
-  arme: Arme;
   restant: number;
   formHero = new FormGroup({
   name: new FormControl(''),
@@ -25,13 +24,13 @@ export class CreationComponent implements DoCheck, OnInit {
   });
 
 
-
   constructor(private form: FormBuilder, private heroService: HeroService, private router: Router) { }
 
   ngDoCheck(): void {
     // tslint:disable-next-line:max-line-length
     this.restant = 40 - (this.formHero.get('attaque').value + this.formHero.get('esquive').value + this.formHero.get('degats').value + this.formHero.get('pv').value);
   }
+  // creation
   ngOnInit() {
     this.hero = new Hero();
     this.restant = 40;
@@ -40,21 +39,19 @@ export class CreationComponent implements DoCheck, OnInit {
     this.formHero.get('degats').setValue(1);
     this.formHero.get('pv').setValue(1);
 
-    this.arme = new Arme();
-    this.restant = 5;
-
   }
 
   createHero() {
-    const hero = new Hero();
-    hero.id = '';
-    hero.name = this.formHero.get('name').value;
-    hero.attaque = this.formHero.get('attaque').value;
-    hero.esquive = this.formHero.get('esquive').value;
-    hero.degats = this.formHero.get('degats').value;
-    hero.pv = this.formHero.get('pv').value;
-    this.heroService.addHero(hero);
-    this.router.navigate(['/heroes']);
+    if (this.restant < 0 || this.restant > 40) {
+    } else {
+      this.hero.name = this.formHero.get('name').value;
+      this.hero.attaque = this.formHero.get('attaque').value;
+      this.hero.esquive = this.formHero.get('esquive').value;
+      this.hero.degats = this.formHero.get('degats').value;
+      this.hero.pv = this.formHero.get('pv').value;
+      this.heroService.addHero(this.hero);
+      this.router.navigate(['/heroes']);
+    }
 
   }
 

@@ -18,7 +18,7 @@
       <input type="number" formControlName="pv" min="1" max="{{restant + this.formHero.get('pv').value}}">
     </label><br>
 <!--  Value: {{ formHero.value }}-->
-<button type="submit" [disabled]="!formHero.valid">Valider</button>
+<button *ngIf="restant >= 0 && restant < 40"  type="submit" [disabled]="!formHero.valid">Valider</button>
   </form>
 </div>
 

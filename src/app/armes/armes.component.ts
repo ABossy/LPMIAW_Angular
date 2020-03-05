@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArmeService} from '../services/arme.service';
 import {Arme} from '../data/arme';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-armes',
@@ -11,7 +12,7 @@ export class ArmesComponent implements OnInit {
 
   armes: Arme[];
 
-  constructor(private armeService: ArmeService) { }
+  constructor(private armeService: ArmeService, private router: Router) { }
 
   ngOnInit() {
     this.getArmes();
@@ -20,6 +21,11 @@ export class ArmesComponent implements OnInit {
   getArmes(): void {
     this.armeService.getArmes()
       .subscribe(armes => this.armes = armes);
+  }
+
+  delete(id): void {
+    this.armeService.deleteArme(id);
+    this.router.navigate(['/armes']);
   }
 }
 
