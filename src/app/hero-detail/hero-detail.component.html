@@ -17,7 +17,20 @@
     </label><br>
     <label>P.Vie:
       <input [(ngModel)]="hero.pv" placeholder="pv"/>
+    </label><br>
+    <label>Arme:
+      <select>
+        <option> Aucune arme</option>
+        <option *ngFor="let arme of arme"> {{arme.name}}</option>
+      </select>
     </label>
   </div>
+  <div>
   <button (click)="goBack()">go back</button>
+</div>
+<div class="btn-position">
+  <button id="btn-enregistrer" (click)="save()"> Enregistrer les modifications</button>
+</div>
+
+
 </div>

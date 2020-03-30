@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { HeroService } from '../services/hero.service';
+import {Arme} from '../data/arme';
+import {ArmeService} from '../services/arme.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -12,15 +14,18 @@ import { HeroService } from '../services/hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
+  arme: Arme[];
 
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
+    private location: Location,
+    private armeService: ArmeService
   ) {}
 
   ngOnInit(): void {
     this.getHero();
+    this.getArmes();
   }
 
   getHero(): void {
@@ -35,5 +40,12 @@ export class HeroDetailComponent implements OnInit {
 
   save() {
     this.heroService.updateHero(this.hero);
+    this.location.back();
+  }
+
+  getArmes(): void {
+    // @ts-ignore
+    this.armeService.getArmes()
+      .subscribe(arme => this.arme = arme);
   }
 }
