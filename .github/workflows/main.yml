@@ -27,5 +27,5 @@ jobs:
       - run: npm install -g @angular/cli
       - run: npm i
       - run: ng config -g cli.warnings.versionMismatch false
-      - run: ng build --no-progress --aot --prod --base-href /~{grafa}/info7/
-      - run: sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r `pwd`/dist/{LPMIAW_Angular}/* {grafa}@transit.iut2.upmf-grenoble.fr:public_html/info7/
+      - run: ng build --no-progress --aot --prod --base-href /~grafa/info7/
+      - run: sshpass -p '${{ secrets.SSH_PASSWORD }}' scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r `pwd`/dist/LPMIAW_Angular/* grafa@transit.iut2.upmf-grenoble.fr:public_html/info7/
