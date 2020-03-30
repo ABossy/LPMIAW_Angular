@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ArmeService} from '../services/arme.service';
 import {Arme} from '../data/arme';
+import {Hero} from '../data/hero';
 
 @Component({
   selector: 'app-arme-detail',
@@ -32,5 +33,6 @@ export class ArmeDetailComponent implements OnInit {
 
   save() {
     this.armeService.updateArme(this.arme);
+    this.location.back();
   }
 }

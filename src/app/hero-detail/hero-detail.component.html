@@ -1,36 +1,48 @@
 <div *ngIf="hero">
-
   <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label><br>
-    <label>attaque:
-      <input [(ngModel)]="hero.attaque" placeholder="attaque"/>
-    </label><br>
-    <label>esquive:
-      <input [(ngModel)]="hero.esquive" placeholder="esquive"/>
-    </label><br>
-    <label>degats:
-      <input [(ngModel)]="hero.degats" placeholder="degats"/>
-    </label><br>
-    <label>P.Vie:
-      <input [(ngModel)]="hero.pv" placeholder="pv"/>
-    </label><br>
-    <label>Arme:
-      <select>
-        <option> Aucune arme</option>
-        <option *ngFor="let arme of arme"> {{arme.name}}</option>
-      </select>
-    </label>
+  <div class="row">
+    <div class="col-sm-5" id="infoHero">
+      <div><img src="https://cdn2.iconfinder.com/data/icons/heroes/128/superhero_captain_hero_comic-512.png"
+                alt="{{hero.name}}" width="120px">
+      </div>
+      <div class="detailsHero">
+        <span>Attaque: {{hero.attaque}}</span><br>
+        <span>Esquive: {{hero.esquive}}</span><br>
+        <span>Degats: {{hero.degats}}</span><br>
+        <span>Point de Vie: {{hero.pv}}</span><br>
+        <span>Arme: {{hero.getNomArme(hero.arme)}}</span><br>
+      </div>
+      <div>
+        <button (click)="goBack()">go back</button>
+      </div>
+    </div>
+    <div class="col-sm-offset-1 col-sm-5" id="modifHero">
+      <h3>Modifier votre Hero</h3>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label><br>
+      <label>attaque:
+        <input [(ngModel)]="hero.attaque" placeholder="attaque" type="number" min="1"/>
+      </label><br>
+      <label>esquive:
+        <input [(ngModel)]="hero.esquive" placeholder="esquive" type="number"  min="1"/>
+      </label><br>
+      <label>degats:
+        <input [(ngModel)]="hero.degats" placeholder="degats" type="number"  min="1"/>
+      </label><br>
+      <label>P.Vie:
+        <input [(ngModel)]="hero.pv" placeholder="pv" type="number" min="1"/>
+      </label><br>
+      <label>Arme:
+        <select [(ngModel)]="hero.arme" >
+          <option> Aucune arme</option>
+          <option *ngFor="let arme of arme" value="{{arme.id}}"> {{arme.name}}</option>
+        </select>
+      </label>
+      <div class="btn-position">
+        <button id="btn-enregistrer" (click)="save()"> Enregistrer les modifications</button>
+      </div>
+    </div>
   </div>
-  <div>
-  <button (click)="goBack()">go back</button>
-</div>
-<div class="btn-position">
-  <button id="btn-enregistrer" (click)="save()"> Enregistrer les modifications</button>
-</div>
-
 
 </div>

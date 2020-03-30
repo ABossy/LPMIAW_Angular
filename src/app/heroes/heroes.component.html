@@ -4,7 +4,11 @@
   <thead>
   <tr>
     <th scope="col">Nom</th>
-    <th scope="col"></th>
+    <th scope="col">Attaque</th>
+    <th scope="col">Esquive</th>
+    <th scope="col">Degats</th>
+    <th scope="col">P.Vie</th>
+    <th scope="col">Edition</th>
   </tr>
   </thead>
   <tbody>
@@ -13,6 +17,10 @@
       <a routerLink="/detail/{{hero.id}}">
         {{hero.name}}</a>
     </td>
+    <td>{{hero.attaque}}</td>
+    <td>{{hero.esquive}}</td>
+    <td>{{hero.degats}}</td>
+    <td>{{hero.pv}}</td>
     <td>
       <button type="button" class="btn btn-danger" (click)="delete(hero.id)">Supprimer</button>
     </td>

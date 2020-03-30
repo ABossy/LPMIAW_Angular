@@ -21,10 +21,11 @@ export class CreationComponent implements DoCheck, OnInit {
   esquive: new FormControl(''),
   degats: new FormControl(''),
   pv: new FormControl(''),
+  arme: new FormControl(''),
   });
 
 
-  constructor(private form: FormBuilder, private heroService: HeroService, private router: Router) { }
+  constructor(private form: FormBuilder, private heroService: HeroService, private router: Router, private armeService: ArmeService) { }
 
   ngDoCheck(): void {
     // tslint:disable-next-line:max-line-length
@@ -49,6 +50,7 @@ export class CreationComponent implements DoCheck, OnInit {
       this.hero.esquive = this.formHero.get('esquive').value;
       this.hero.degats = this.formHero.get('degats').value;
       this.hero.pv = this.formHero.get('pv').value;
+      this.hero.arme = this.formHero.get('arme').value;
       this.heroService.addHero(this.hero);
       this.router.navigate(['/heroes']);
     }

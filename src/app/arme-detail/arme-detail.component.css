@@ -28,3 +28,9 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+.detailsArme{
+  padding-left: 20px;
+  font-size: 30px;
+  background-color: lightgoldenrodyellow;
+}

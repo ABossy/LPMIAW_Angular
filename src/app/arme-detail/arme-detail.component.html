@@ -1,24 +1,42 @@
 <div *ngIf="arme">
-
   <h2>{{arme.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{arme.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="arme.name" placeholder="name"/>
-    </label><br>
-    <label>attaque:
-      <input [(ngModel)]="arme.attaque" placeholder="attaque"/>
-    </label><br>
-    <label>esquive:
-      <input [(ngModel)]="arme.esquive" placeholder="esquive"/>
-    </label><br>
-    <label>degats:
-      <input [(ngModel)]="arme.degats" placeholder="degats"/>
-    </label><br>
-    <label>P.Vie:
-      <input [(ngModel)]="arme.pv" placeholder="pv"/>
-    </label>
+  <div class="row">
+    <div class="col-sm-5" id="infoHero">
+      <div><img src="https://www.ediogames.com/uploaded_files/2015_06_24_ARMES.png"
+                alt="{{arme.name}}" width="500px">
+      </div>
+      <div class="detailsArme">
+        <span>Attaque: {{arme.attaque}}</span><br>
+        <span>Esquive: {{arme.esquive}}</span><br>
+        <span>Degats: {{arme.degats}}</span><br>
+        <span>Point de Vie: {{arme.pv}}</span><br>
+      </div>
+      <div>
+        <button (click)="goBack()">go back</button>
+      </div>
+    </div>
+    <div class="col-sm-offset-1 col-sm-5" id="modifHero">
+      <h3>Modifier votre Arme</h3>
+        <h4>Points de l'arme: {{arme.attaque + arme.degats + arme.esquive + arme.pv}}</h4>
+      <label>name:
+        <input [(ngModel)]="arme.name" placeholder="name"/>
+      </label><br>
+      <label>attaque:
+        <input [(ngModel)]="arme.attaque" placeholder="attaque" type="number" max="5" min="-5"/>
+      </label><br>
+      <label>esquive:
+        <input [(ngModel)]="arme.esquive" placeholder="esquive"type="number" max="5" min="-5"/>
+      </label><br>
+      <label>degats:
+        <input [(ngModel)]="arme.degats" placeholder="degats" type="number" max="5" min="-5"/>
+      </label><br>
+      <label>P.Vie:
+        <input [(ngModel)]="arme.pv" placeholder="pv" type="number" max="5" min="-5"/>
+      </label><br>
+      <div class="btn-position">
+        <button id="btn-enregistrer" (click)="save()"> Enregistrer les modifications</button>
+      </div>
+    </div>
   </div>
-  <button (click)="goBack()">go back</button>
-</div>
 
+</div>

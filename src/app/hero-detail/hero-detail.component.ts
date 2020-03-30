@@ -44,7 +44,6 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getArmes(): void {
-    // @ts-ignore
     this.armeService.getArmes()
       .subscribe(arme => this.arme = arme);
   }

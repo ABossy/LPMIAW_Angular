@@ -4,15 +4,23 @@
   <thead>
   <tr>
     <th scope="col">Nom</th>
-    <th scope="col"></th>
+    <th scope="col">Attaque</th>
+    <th scope="col">Esquive</th>
+    <th scope="col">Degats</th>
+    <th scope="col">P.Vie</th>
+    <th scope="col">Edition</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let arme of armes">
     <td>
-      <a routerLink="/detail/{{arme.id}}">
+      <a routerLink="/details-Armes/{{arme.id}}">
         {{arme.name}}</a>
     </td>
+    <td>{{arme.attaque}}</td>
+    <td>{{arme.esquive}}</td>
+    <td>{{arme.degats}}</td>
+    <td>{{arme.pv}}</td>
     <td>
       <button type="button" class="btn btn-danger" (click)="delete(arme.id)">Supprimer</button>
     </td>
