@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Hero } from '../data/hero';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {Hero} from '../data/hero';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
-import { HeroService } from '../services/hero.service';
+import {HeroService} from '../services/hero.service';
 import {Arme} from '../data/arme';
 import {ArmeService} from '../services/arme.service';
 
@@ -15,23 +15,36 @@ import {ArmeService} from '../services/arme.service';
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
   arme: Arme[];
+  armeName: string;
+  total: number;
 
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location,
     private armeService: ArmeService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getHero();
     this.getArmes();
+
+  }
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngDoCheck(): void {
+    this.total = 40 - (this.hero.pv + this.hero.degats + this.hero.esquive + this.hero.attaque);
   }
 
   getHero(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {
+        this.hero = hero;
+        this.armeService.getArme(hero.arme)
+          .subscribe(arme => this.armeName = arme.name);
+      });
   }
 
   goBack(): void {
@@ -47,4 +60,5 @@ export class HeroDetailComponent implements OnInit {
     this.armeService.getArmes()
       .subscribe(arme => this.arme = arme);
   }
+
 }

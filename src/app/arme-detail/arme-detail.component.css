@@ -5,11 +5,13 @@ label {
   color: #607D8B;
   font-weight: bold;
 }
+
 input {
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
 }
+
 button {
   margin-top: 20px;
   font-family: Arial;
@@ -20,17 +22,27 @@ button {
   cursor: pointer;
   cursor: hand;
 }
+
 button:hover {
   background-color: #cfd8dc;
 }
+
 button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
 }
 
-.detailsArme{
+.detailsArme {
   padding-left: 20px;
   font-size: 30px;
   background-color: lightgoldenrodyellow;
+}
+
+#modifArme h4 {
+  color: green;
+}
+
+#modifArme p {
+  color: red;
 }

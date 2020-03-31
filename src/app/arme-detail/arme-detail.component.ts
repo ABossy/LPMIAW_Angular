@@ -12,6 +12,7 @@ import {Hero} from '../data/hero';
 })
 export class ArmeDetailComponent implements OnInit {
   @Input() arme: Arme;
+  totalArme: number;
 
   constructor(  private route: ActivatedRoute,
                 private armeService: ArmeService,
@@ -19,6 +20,11 @@ export class ArmeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getArme();
+  }
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngDoCheck(): void {
+    this.totalArme = 0 - (this.arme.pv + this.arme.degats + this.arme.esquive + this.arme.attaque);
   }
 
   getArme(): void {

@@ -37,3 +37,23 @@ button:disabled {
   color:white;
 
 }
+
+.detailsArme {
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 30px;
+  background-color: gray;
+  color: white;
+}
+
+.detailsArme h2 {
+  color: black;
+}
+
+#modifHero h4{
+  Color: green;
+}
+
+#modifHero p{
+  Color: red;
+}
