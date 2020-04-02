@@ -6,6 +6,9 @@
                 alt="{{hero.name}}" width="120px">
       </div>
       <div class="detailsHero">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="8" aria-valuemin="1" aria-valuemax="40">{{hero.attaque}}</div>
+        </div>
         <span>Attaque: {{hero.attaque}}</span><br>
         <span>Esquive: {{hero.esquive}}</span><br>
         <span>Degats: {{hero.degats}}</span><br>
@@ -13,7 +16,7 @@
       </div>
       <div class="detailsArme">
         <h2>Arme Details</h2>
-        <span>Nom: {{armeName}}</span><br>
+        <span>Nom: {{hero.armeName}}</span><br>
       </div>
       <div>
         <button (click)="goBack()">Retour</button>
@@ -27,21 +30,21 @@
         <input [(ngModel)]="hero.name" placeholder="name"/>
       </label><br>
       <label>attaque:
-        <input [(ngModel)]="hero.attaque" placeholder="attaque" type="number" min="1"/>
+        <input [(ngModel)]="hero.attaque" placeholder="attaque" type="number" min="1" max="{{40 - (hero.pv + hero.degats + hero.esquive)}}"/>
       </label><br>
       <label>esquive:
-        <input [(ngModel)]="hero.esquive" placeholder="esquive" type="number" min="1"/>
+        <input [(ngModel)]="hero.esquive" placeholder="esquive" type="number" min="1" max="{{40 - (hero.pv + hero.degats + hero.attaque)}}" />
       </label><br>
       <label>degats:
-        <input [(ngModel)]="hero.degats" placeholder="degats" type="number" min="1"/>
+        <input [(ngModel)]="hero.degats" placeholder="degats" type="number" min="1" max="{{40 - (hero.pv + hero.esquive + hero.attaque)}}" />
       </label><br>
       <label>P.Vie:
-        <input [(ngModel)]="hero.pv" placeholder="pv" type="number" min="1"/>
+        <input [(ngModel)]="hero.pv" placeholder="pv" type="number" min="1"max="{{40 - (hero.esquive + hero.degats + hero.attaque)}}" />
       </label><br>
       <label>Arme:
         <select [(ngModel)]="hero.arme">
           <option> Aucune arme</option>
-          <option *ngFor="let arme of arme" value="{{arme.id}}"> {{arme.name}}</option>
+          <option *ngFor="let arme of armes" value="{{arme.id}}"> {{arme.name}}</option>
         </select>
       </label>
       <div class="btn-position">

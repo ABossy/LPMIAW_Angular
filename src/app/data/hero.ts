@@ -9,6 +9,7 @@ export class Hero extends Serializable {
   degats: number;
   pv: number;
   arme: string;
+  armeName: string;
 
 
   uneMethode(): string {

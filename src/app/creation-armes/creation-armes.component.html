@@ -1,6 +1,7 @@
-<div class="container">
-  <h2>Création d'une arme</h2>
-  <p>Point de l'arme : {{restant}}</p>
+<div class="container" id="creaArme">
+  <h3>Création d'une arme</h3>
+  <h4>Point de l'arme : {{restant}}</h4>
+  <p>Le total des points de votre arme ne doit pas dépasser 0</p>
   <form [formGroup]="formArme" (ngSubmit)="createArme()">
     <label>Name:
       <input type="text" formControlName="name">
@@ -18,7 +19,7 @@
       <input type="number" formControlName="pv" min="-5" max="{{restant + this.formArme.get('pv').value}}">
     </label><br>
 
-    <button type="submit" [disabled]="!formArme.valid">Valider</button>
+    <button *ngIf="restant == 0 " type="submit" [disabled]="!formArme.valid">Valider</button>
   </form>
 </div>
 

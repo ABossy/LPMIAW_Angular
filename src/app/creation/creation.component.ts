@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./creation.component.css']
 })
 export class CreationComponent implements DoCheck, OnInit {
-
+  private armes: Arme[];
   hero: Hero;
   restant: number;
   formHero = new FormGroup({
@@ -23,6 +23,7 @@ export class CreationComponent implements DoCheck, OnInit {
   pv: new FormControl(''),
   arme: new FormControl(''),
   });
+
 
 
   constructor(private form: FormBuilder, private heroService: HeroService, private router: Router, private armeService: ArmeService) { }
@@ -39,6 +40,7 @@ export class CreationComponent implements DoCheck, OnInit {
     this.formHero.get('esquive').setValue(1);
     this.formHero.get('degats').setValue(1);
     this.formHero.get('pv').setValue(1);
+    this.getArmes();
 
   }
 
@@ -57,5 +59,8 @@ export class CreationComponent implements DoCheck, OnInit {
 
   }
 
-
+  getArmes(): void {
+    this.armeService.getArmes()
+      .subscribe(armes => this.armes = armes);
+  }
 }

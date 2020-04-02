@@ -14,15 +14,14 @@ import {ArmeService} from '../services/arme.service';
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
-  arme: Arme[];
-  armeName: string;
+  armes: Arme[];
   total: number;
 
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location,
-    private armeService: ArmeService
+    private armeService: ArmeService,
+    private location: Location
   ) {
   }
 
@@ -40,11 +39,7 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => {
-        this.hero = hero;
-        this.armeService.getArme(hero.arme)
-          .subscribe(arme => this.armeName = arme.name);
-      });
+      .subscribe(hero => this.hero = hero );
   }
 
   goBack(): void {
@@ -58,7 +53,7 @@ export class HeroDetailComponent implements OnInit {
 
   getArmes(): void {
     this.armeService.getArmes()
-      .subscribe(arme => this.arme = arme);
+      .subscribe(armes => this.armes = armes );
   }
 
 }

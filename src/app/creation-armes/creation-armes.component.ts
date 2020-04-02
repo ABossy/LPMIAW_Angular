@@ -1,5 +1,5 @@
 // @ts-ignore
-import { Component, DoCheck, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ArmeService} from '../services/arme.service';
 import {Arme} from '../data/arme';
@@ -15,18 +15,21 @@ export class CreationArmesComponent implements DoCheck, OnInit {
   arme: Arme;
   restant: number;
   formArme = new FormGroup({
-  name: new FormControl(''),
-  attaque: new FormControl(''),
-  esquive: new FormControl(''),
-  degats: new FormControl(''),
-  pv: new FormControl(''),
+    name: new FormControl(''),
+    attaque: new FormControl(''),
+    esquive: new FormControl(''),
+    degats: new FormControl(''),
+    pv: new FormControl(''),
   });
 
-  constructor(private form: FormBuilder,  private armeService: ArmeService, private router: Router) { }
+  constructor(private form: FormBuilder, private armeService: ArmeService, private router: Router) {
+  }
+
   ngDoCheck(): void {
     // tslint:disable-next-line:max-line-length
     this.restant = 0 - (this.formArme.get('attaque').value + this.formArme.get('esquive').value + this.formArme.get('degats').value + this.formArme.get('pv').value);
   }
+
   ngOnInit() {
   }
 

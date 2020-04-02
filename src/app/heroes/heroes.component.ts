@@ -14,9 +14,10 @@ import {ArmeService} from '../services/arme.service';
 export class HeroesComponent implements OnInit {
 @Input() heroes: Hero[];
    armes: Arme[];
+   armeName: string;
 
 
-  constructor(private heroService: HeroService, private router: Router,     private armeService: ArmeService
+  constructor(private heroService: HeroService, private router: Router, private armeService: ArmeService
   ) { }
 
   ngOnInit() {
@@ -32,6 +33,12 @@ export class HeroesComponent implements OnInit {
   getArmes(): void {
     this.armeService.getArmes()
       .subscribe(arme => this.armes = arme);
+  }
+
+  getArmeName(id): string {
+    this.armeService.getArme(id)
+      .subscribe(arme => arme.name);
+    return 'name';
   }
 
   delete(id): void {

@@ -29,3 +29,11 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+#creaArme h4 {
+color: green;
+}
+
+#creaArme p {
+  color: red;
+}

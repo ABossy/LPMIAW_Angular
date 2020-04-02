@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 
 import { Hero } from '../data/hero';
 import {MessageService} from './message.service';
-
+import {ArmeService} from './arme.service';
 
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -20,6 +20,7 @@ export class HeroService {
   private static url = 'heroes';
 
   constructor(private messageService: MessageService,
+              private armeService: ArmeService,
               private db: AngularFirestore) { }
 
   /*getHeroes(): Observable<Hero[]> {
@@ -55,6 +56,9 @@ export class HeroService {
             // log
             console.log('   hero ' + id);
 
+            this.armeService.getArme(hero.arme)
+              .subscribe(arme => hero.armeName = arme.name );
+
             // Use spread operator to add the id to the document data
             return hero;
 
@@ -80,6 +84,9 @@ export class HeroService {
 
           // log
           console.log('getHero(' + id + ')');
+
+          this.armeService.getArme(hero.arme)
+            .subscribe(arme => hero.armeName = arme.name );
 
           // Use spread operator to add the id to the document data
           return hero;

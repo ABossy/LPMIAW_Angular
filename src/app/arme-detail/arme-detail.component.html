@@ -23,16 +23,20 @@
         <input [(ngModel)]="arme.name" placeholder="name"/>
       </label><br>
       <label>attaque:
-        <input [(ngModel)]="arme.attaque" placeholder="attaque" type="number" max="5" min="-5"/>
+        <input [(ngModel)]="arme.attaque" placeholder="attaque" type="number" min="-5"
+               max="{{ 0 - (arme.pv + arme.degats + arme.esquive)}}"/>
       </label><br>
       <label>esquive:
-        <input [(ngModel)]="arme.esquive" placeholder="esquive" type="number" max="5" min="-5"/>
+        <input [(ngModel)]="arme.esquive" placeholder="esquive" type="number" min="-5"
+               max="{{  0 - (arme.pv + arme.degats + arme.attaque)}}"/>
       </label><br>
       <label>degats:
-        <input [(ngModel)]="arme.degats" placeholder="degats" type="number" max="5" min="-5"/>
+        <input [(ngModel)]="arme.degats" placeholder="degats" type="number" min="-5"
+               max="{{ 0 - (arme.pv + arme.esquive + arme.attaque)}}"/>
       </label><br>
       <label>P.Vie:
-        <input [(ngModel)]="arme.pv" placeholder="pv" type="number" max="5" min="-5"/>
+        <input [(ngModel)]="arme.pv" placeholder="pv" type="number" min="-5"
+               max="{{ 0 - (arme.esquive + arme.degats + arme.attaque)}}"/>
       </label><br>
       <div class="btn-position">
         <button *ngIf="totalArme == 0 " id="btn-enregistrer" (click)="save()"> Enregistrer les
