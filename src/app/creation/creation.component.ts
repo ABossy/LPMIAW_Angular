@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./creation.component.css']
 })
 export class CreationComponent implements DoCheck, OnInit {
-  private armes: Arme[];
+  armes: Arme[];
   hero: Hero;
   restant: number;
   formHero = new FormGroup({
