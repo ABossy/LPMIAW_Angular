@@ -16,4 +16,9 @@ export class Hero extends Serializable {
     return 'le nom de mon hero' + this.name + this.attaque + this.esquive + this.degats + this.pv + this.arme;
   }
 
+  toJSON() {
+    const {armeName, ...otherProps} = this;
+    return otherProps;
+  }
+
 }

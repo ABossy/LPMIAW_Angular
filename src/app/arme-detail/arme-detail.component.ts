@@ -24,6 +24,7 @@ export class ArmeDetailComponent implements OnInit {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngDoCheck(): void {
+    if ( !this.arme ) { return; }
     this.totalArme = 0 - (this.arme.pv + this.arme.degats + this.arme.esquive + this.arme.attaque);
   }
 

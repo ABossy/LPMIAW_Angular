@@ -33,6 +33,7 @@ export class HeroDetailComponent implements OnInit {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngDoCheck(): void {
+    if (!this.hero) { return; }
     this.total = 40 - (this.hero.pv + this.hero.degats + this.hero.esquive + this.hero.attaque);
   }
 

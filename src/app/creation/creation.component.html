@@ -21,7 +21,7 @@
     <h5>Ajouter une arme à votre Hero</h5>
     <label>Arme:
       <select formControlName="arme">
-        <option> Aucune arme</option>
+        <option value="">Aucune arme</option>
         <option *ngFor="let arme of armes" value="{{arme.id}}"> {{arme.name}}</option>
       </select>
     </label>
