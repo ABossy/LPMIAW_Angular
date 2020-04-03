@@ -1,25 +1,33 @@
 <h2 xmlns:orderBy="http://www.w3.org/1999/xhtml" xmlns:orderBy="http://www.w3.org/1999/xhtml">My Heroes</h2>
-<button type="button" class="btn btn-info"  routerLink="/heroes/creation">Creation Heroe</button>
+<button type="button" class="btn btn-info" routerLink="/heroes/creation">Creation Heroe</button>
 <table class="table table-striped">
   <thead>
   <tr>
     <th scope="col">
       <button type="button" class="btn btn-link" (click)="setSort( 'name' )">
-        Nom {{ sortBy === 'name' ? ( sortDirection === 'desc' ? '-' : '+' ) : '' }}
+        Nom {{ sortBy === 'name' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
       </button>
     </th>
     <th scope="col">
       <button type="button" class="btn btn-link" (click)="setSort( 'attaque' )">
-        Attaque {{ sortBy === 'attaque' ? ( sortDirection === 'desc' ? '-' : '+' ) : '' }}
+        Attaque {{ sortBy === 'attaque' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
       </button>
     </th>
     <th scope="col">
       <button type="button" class="btn btn-link" (click)="setSort( 'esquive' )">
-        Esquive {{ sortBy === 'esquive' ? ( sortDirection === 'desc' ? '-' : '+' ) : '' }}
+        Esquive {{ sortBy === 'esquive' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
       </button>
     </th>
-    <th scope="col">Degats</th>
-    <th scope="col">P.Vie</th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'degats' )">
+        Degats {{ sortBy === 'degats' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
+    <th scope="col">
+      <button type="button" class="btn btn-link" (click)="setSort( 'pv' )">
+        P.Vie {{ sortBy === 'pv' ? (sortDirection === 'desc' ? '-' : '+') : '' }}
+      </button>
+    </th>
     <th scope="col">Arme</th>
     <th scope="col">Edition</th>
   </tr>

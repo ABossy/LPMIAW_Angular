@@ -5,11 +5,13 @@ label {
   color: #607D8B;
   font-weight: bold;
 }
+
 input {
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
 }
+
 button {
   margin-top: 20px;
   font-family: Arial;
@@ -20,27 +22,25 @@ button {
   cursor: pointer;
   cursor: hand;
 }
+
 button:hover {
   background-color: #cfd8dc;
 }
+
 button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
 }
 
-.detailsHero{
+.detailsHero {
   border: solid;
   padding: 10px;
   /*font-size: 30px;*/
   background-color: silver;
-  color:white;
+  color: white;
 
 }
-/*
-.detailsHero .progress-bar {
-  min-width: 2em;
-}*/
 
 .detailsHero .col-val {
   font-size: 10px;
@@ -58,10 +58,10 @@ button:disabled {
   color: black;
 }
 
-#modifHero h4{
+#modifHero h4 {
   Color: green;
 }
 
-#modifHero p{
+#modifHero p {
   Color: red;
 }

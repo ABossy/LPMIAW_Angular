@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import {Observable, of} from 'rxjs';
 
-import { Hero } from '../data/hero';
+import {Hero} from '../data/hero';
 import {MessageService} from './message.service';
 import {ArmeService} from './arme.service';
 
 import {AngularFirestore, DocumentChangeAction} from '@angular/fire/firestore';
-import { AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import {AngularFirestoreDocument} from '@angular/fire/firestore';
+import {AngularFirestoreCollection} from '@angular/fire/firestore';
 import {map} from 'rxjs/operators';
 
 
@@ -21,7 +21,8 @@ export class HeroService {
 
   constructor(private messageService: MessageService,
               private armeService: ArmeService,
-              private db: AngularFirestore) { }
+              private db: AngularFirestore) {
+  }
 
   /*getHeroes(): Observable<Hero[]> {
     this.messageService.add('HeroService: fetched heroes');
@@ -57,7 +58,7 @@ export class HeroService {
             console.log('   hero ' + id);
 
             this.armeService.getArme(hero.arme)
-              .subscribe(arme => hero.armeName = arme.name );
+              .subscribe(arme => hero.armeName = arme.name);
 
             // Use spread operator to add the id to the document data
             return hero;
@@ -86,7 +87,7 @@ export class HeroService {
           console.log('getHero(' + id + ')');
 
           this.armeService.getArme(hero.arme)
-            .subscribe(arme => hero.armeName = arme.name );
+            .subscribe(arme => hero.armeName = arme.name);
 
           // Use spread operator to add the id to the document data
           return hero;

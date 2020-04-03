@@ -1,14 +1,14 @@
 <div class="container" id="creaHero">
-<h4>Création d'un hero</h4>
+  <h4>Création d'un hero</h4>
   <h3>Point du Hero : {{restant}}</h3>
   <p>! 40 points max à attribuer</p>
   <form [formGroup]="formHero" (ngSubmit)="createHero()">
-  <label>Name:
-    <input type="text" formControlName="name">
-  </label><br>
-  <label>Attaque:
-    <input type="number" formControlName="attaque" min="1" max="{{restant + this.formHero.get('attaque').value}}">
-  </label><br>
+    <label>Name:
+      <input type="text" formControlName="name">
+    </label><br>
+    <label>Attaque:
+      <input type="number" formControlName="attaque" min="1" max="{{restant + this.formHero.get('attaque').value}}">
+    </label><br>
     <label>Esquive:
       <input type="number" formControlName="esquive" min="1" max="{{restant + this.formHero.get('esquive').value}}">
     </label><br>
@@ -26,7 +26,7 @@
       </select>
     </label>
     <div>
-    <button *ngIf="restant >= 0 && restant < 40"  type="submit" [disabled]="!formHero.valid">Valider</button>
+      <button *ngIf="restant >= 0 && restant < 40" type="submit" [disabled]="!formHero.valid">Valider</button>
     </div>
   </form>
 </div>
