@@ -15,6 +15,8 @@ export class HeroesComponent implements OnInit {
 @Input() heroes: Hero[];
    armes: Arme[];
    armeName: string;
+   sortBy = 'name';
+   sortDirection = 'asc';
 
 
   constructor(private heroService: HeroService, private router: Router, private armeService: ArmeService
@@ -23,26 +25,46 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
     this.getArmes();
+
   }
 
+  // chargement de tous les heros avec la fonction sort
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = this.doSort( heroes ) );
   }
 
+  // recuperation de toutes les armes
   getArmes(): void {
     this.armeService.getArmes()
       .subscribe(arme => this.armes = arme);
   }
 
-  getArmeName(id): string {
-    this.armeService.getArme(id)
-      .subscribe(arme => arme.name);
-    return 'name';
-  }
 
+// suppression d'un hero
   delete(id): void {
     this.heroService.deleteHero(id);
     this.router.navigate(['/heroes']);
   }
+
+  setSort(by): void {
+    if ( this.sortBy === by ) {
+      this.sortDirection = ( this.sortDirection === 'desc' ? 'asc' : 'desc' );
+    } else {
+      this.sortDirection = 'asc';
+    }
+    this.sortBy = by;
+
+    this.heroes = this.doSort( this.heroes );
+  }
+
+  doSort( heroes ): Hero[] {
+    return heroes.sort( ( a, b ) => {
+      if (this.sortBy === 'name' ) {
+        return ( this.sortDirection === 'desc' ? 1 : -1 ) * ( a[this.sortBy].toLowerCase() > b[this.sortBy].toLowerCase() ? -1 : 1);
+      }
+      return ( this.sortDirection === 'desc' ? 1 : -1 ) * ( a[this.sortBy] > b[this.sortBy] ? -1 : 1);
+    } );
+  }
+
 }

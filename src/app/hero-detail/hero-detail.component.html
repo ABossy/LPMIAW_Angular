@@ -6,13 +6,58 @@
                 alt="{{hero.name}}" width="120px">
       </div>
       <div class="detailsHero">
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="8" aria-valuemin="1" aria-valuemax="40">{{hero.attaque}}</div>
+        <div class="row align-items-center">
+          <div class="col">
+            Attaque:
+          </div>
+          <div class="col col-6">
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" [ngClass]="{ 'bg-warning': hero.attaque > 20, 'bg-danger': hero.attaque > 30 }" [ngStyle]="{ 'width.%': 100 * hero.attaque / 37 }" aria-valuenow="8" aria-valuemin="1" aria-valuemax="37"></div>
+            </div>
+          </div>
+          <div class="col col-2 col-val">
+            {{ hero.attaque }}
+          </div>
         </div>
-        <span>Attaque: {{hero.attaque}}</span><br>
-        <span>Esquive: {{hero.esquive}}</span><br>
-        <span>Degats: {{hero.degats}}</span><br>
-        <span>Point de Vie: {{hero.pv}}</span><br>
+        <div class="row align-items-center">
+          <div class="col">
+            Esquive:
+          </div>
+          <div class="col col-6">
+            <div class="progress">
+              <div class="progress-bar bg-success" [ngClass]="{ 'bg-warning': hero.esquive > 20, 'bg-danger': hero.esquive > 30 }" role="progressbar" [ngStyle]="{ 'width.%': 100 * hero.esquive / 37 }" aria-valuenow="8" aria-valuemin="1" aria-valuemax="37"></div>
+            </div>
+          </div>
+          <div class="col col-2 col-val">
+            {{ hero.esquive }}
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col">
+            Degats:
+          </div>
+          <div class="col col-6">
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" [ngClass]="{ 'bg-warning': hero.degats > 20, 'bg-danger': hero.degats > 30 }" [ngStyle]="{ 'width.%': 100 * hero.degats / 37 }" aria-valuenow="8" aria-valuemin="1" aria-valuemax="37"></div>
+            </div>
+          </div>
+          <div class="col col-2 col-val">
+            {{ hero.degats }}
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col">
+            Point de Vie:
+          </div>
+          <div class="col col-6">
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" [ngClass]="{ 'bg-warning': hero.pv > 20, 'bg-danger': hero.pv > 30 }" [ngStyle]="{ 'width.%': 100 * hero.pv / 37 }" aria-valuenow="8" aria-valuemin="1" aria-valuemax="37"></div>
+            </div>
+          </div>
+          <div class="col col-2 col-val">
+            {{ hero.pv }}
+          </div>
+        </div>
       </div>
       <div class="detailsArme">
         <h2>Arme Details</h2>
